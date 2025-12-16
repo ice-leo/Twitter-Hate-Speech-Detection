@@ -9,17 +9,6 @@ A machine learning project for classifying tweets using natural language process
 
 This project implements a binary classification system to analyze and categorize tweets. The pipeline includes comprehensive data preprocessing, exploratory data analysis, feature engineering, and model training with various text vectorization techniques.
 
-## 🗂️ Repository Structure
-
-```
-├── preprocessing_eda.ipynb              # Data preprocessing and exploratory data analysis
-├── logistic_regression.ipynb            # Model training and evaluation
-├── feature_importance_selection.ipynb   # Feature importance analysis and selection
-├── train_E6oV3lV.csv                   # Training dataset
-├── test_tweets_anuFYb8.csv             # Test dataset
-└── models/                              # Saved models and vectorizers
-```
-
 ## 🔍 Project Workflow
 
 ### 1. Data Preprocessing and EDA (`preprocessing_eda.ipynb`)
