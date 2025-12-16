@@ -232,6 +232,7 @@ def predict_tweet(text):
 - The dataset files (`train_E6oV3lV.csv` and `test_tweets_anuFYb8.csv`) should be placed in the project root directory
 - Preprocessing includes cleaning for Twitter-specific elements (@mentions, URLs, etc.)
 - The project uses reproducible random seeds for consistency
+- Currently ranked 547 out of 1400+ submissions with F1-score of **0.6964769648**
 
 ## 🤝 Contributing
 
