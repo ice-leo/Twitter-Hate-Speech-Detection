@@ -20,6 +20,8 @@ This project implements a binary classification system to analyze and categorize
 - **Remove non-alphanumeric characters:** Strips special characters and punctuation
 - **Remove duplicates:** Eliminates duplicate entries from the dataset
 - **Handle missing values:** Identifies and processes null values
+- **Data Augmentation:** Performed Synonym Replacement, Random Insertion, Random Swap, and Random Deletion via [EDA](https://github.com/jasonwei20/eda_nlp) by Wei, Jason  and
+      Zou, Kai to augment data
 
 **Exploratory Data Analysis:**
 - Class distribution visualization (0s and 1s frequency)
