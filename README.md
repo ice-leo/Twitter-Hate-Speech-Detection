@@ -42,7 +42,7 @@ This project implements a binary classification system to analyze and categorize
 - symspellpy for spell checking
 - nltk for NLP tasks (stopwords, tokenization, lemmatization, stemming)
 
-#### 2. Model Training (`logistic_regression/logistic_regression.ipynb`)
+#### 2. Model Training (`logistic_regression/LR.ipynb`)
 
 **Text Processing:**
 - **Lemmatization:** Reduces words to their base form using WordNetLemmatizer
