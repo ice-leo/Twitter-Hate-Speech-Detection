@@ -15,7 +15,7 @@ This project implements a binary classification system to analyze and categorize
 
 ### Workflow
 
-#### 1. Data Preprocessing and EDA (`logistic_regression/preprocessing_eda.ipynb`)
+#### 1. Data Preprocessing and EDA (`logistic_regression/preprocessing_eda_LR.ipynb`)
 
 **Data Loading:**
 - Training and test datasets loaded from CSV files
