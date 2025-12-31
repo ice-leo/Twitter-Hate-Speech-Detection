@@ -1,6 +1,6 @@
 # Twitter Sentiment Analysis
 
-A sentiment analysis project submission for classifying tweets using natural language processing techniques and logistic regression models.  Submitted to Analytics Vidhya Hackathon (Currently ranked 547 out of 1400+ submissions with F1-score of **0.6964769648**).  
+A sentiment analysis project submission for classifying tweets using natural language processing techniques, logistic regression model, and BERT.  Submitted to Analytics Vidhya Hackathon (Currently ranked 7 out of 1400+ submissions with F1-score of **0.8583941606**).  
 
 ## 📋 Project Overview
 
