@@ -1,6 +1,6 @@
 # Twitter Sentiment Analysis
 
-A sentiment analysis project submission for classifying tweets using natural language processing techniques, implementing both traditional machine learning (Logistic Regression) and transformer-based approaches (BERT/RoBERTa). Submitted to Analytics Vidhya Hackathon (Currently ranked 7 out of 1400+ submissions with F1-score of **0.8583941606**).
+A sentiment analysis project submission for classifying tweets using natural language processing techniques, implementing both traditional machine learning (Logistic Regression) and transformer-based approaches (BERT/RoBERTa). Submitted to Analytics Vidhya Hackathon (Currently ranked 6 out of 1400+ submissions with F1-score of **0.8621700880**).
 
 ## 📋 Project Overview
 
@@ -338,11 +338,11 @@ print(f"Predicted label: {label}")  # 0: non-hate, 1: hate speech
 
 | Metric | Logistic Regression | DistilRoBERTa |
 |--------|-------------------|--------------|
-| **F1-Score (Validation)** | 0.6965 | **0.8608** |
-| **F1-Score (Test/Competition)** | 0.6965 | **0.8584** |
-| **Accuracy** | ~92% | **98.14%** |
-| **Precision** | Varies by config | **90.42%** |
-| **Recall** | Varies by config | **82.14%** |
+| **F1-Score (Validation)** | 0.74 | **0.8608** |
+| **F1-Score (Test/Competition)** | 0.6965 | **0.8622** |
+   | **Accuracy** | 91% | **98.14%** |
+| **Precision** |  75% | **90.42%** |
+| **Recall** | 73% | **82.14%** |
 | **Ranking** | 547 / 1400+ | **7 / 1400+** |
 | **Training Time** | Fast (minutes) | Moderate (~52 minutes) |
 | **Inference Time** | Very Fast | Fast (with GPU) |
@@ -556,8 +556,8 @@ nltk.download('wordnet')
 
 | Model | F1-Score (Val) | F1-Score (Test) | Rank | Key Strength |
 |-------|----------------|-----------------|------|--------------|
-| **DistilRoBERTa** | **0.8608** | **0.8584** | **7 / 1400+** | Context understanding, semantic analysis, efficiency |
-| **Logistic Regression** | 0.6965 | 0.6965 | 547 / 1400+ | Fast, interpretable, lightweight |
+| **DistilRoBERTa** | **0.8608** | **0.8622** | **7 / 1400+** | Context understanding, semantic analysis, efficiency |
+| **Logistic Regression** | 0.74 | 0.6965 | 547 / 1400+ | Fast, interpretable, lightweight |
 
 The DistilRoBERTa model demonstrates that efficient transformer-based architectures can achieve superior performance for complex NLP tasks like hate speech detection, where context and semantic understanding are critical. The distilled version provides an excellent balance between the performance of large transformers and the efficiency needed for practical deployment.
 
