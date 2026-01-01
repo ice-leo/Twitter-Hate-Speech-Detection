@@ -207,7 +207,7 @@ def compute_metrics(eval_pred):
 - **Device:** CUDA if available, otherwise CPU
 - **Model Loading:** From saved `model.safetensors` and `config.json`
 - **Batch Processing:** Batch size of 2 for efficient inference
-- **Max Sequence Length:** 48 tokens (optimized for inference speed)
+- **Max Sequence Length:** 128 tokens
 
 **Inference Pipeline:**
 ```python
@@ -216,7 +216,7 @@ test_df = pd.read_csv('test_tweets_anuFYb8.csv')
 
 # 2. Tokenize with inference settings
 tokenizer = AutoTokenizer.from_pretrained("distilroberta-base")
-encodings = tokenizer(tweets, padding=True, truncation=True, max_length=48)
+encodings = tokenizer(tweets, padding='max_length', truncation=True, max_length=128)
 
 # 3. Create DataLoader
 dataset = TweetDataset(encodings)
@@ -237,7 +237,6 @@ output_df.to_csv('test_predictions.csv')
 - **Gradient Computation:** Disabled with `torch.no_grad()` for speed
 - **Model Mode:** Set to `eval()` to disable dropout and batch normalization updates
 - **Memory Management:** `torch.cuda.empty_cache()` for GPU memory cleanup
-- **Shorter Sequences:** 48 tokens vs 128 during training for faster processing
 
 ### DistilRoBERTa Results
 
@@ -246,14 +245,8 @@ output_df.to_csv('test_predictions.csv')
 - **Precision:** 90.42%
 - **Recall:** 82.14%
 - **F1-Score:** **0.8608** (Validation set)
-- **Test Set F1-Score:** **0.8584** (Competition submission)
-- **Ranking:** **7 out of 1400+** submissions
-
-**Performance Progression:**
-- Steady improvement across epochs
-- F1-Score improved by ~3.3% from Epoch 1 to Epoch 3
-- Training loss reduced by 60% (0.0857 → 0.0337)
-- Model converged well without overfitting
+- **Test Set F1-Score:** **0.8622** (Competition submission)
+- **Ranking:** **6 out of 1400+** submissions
 
 ### Key Advantages of DistilRoBERTa Approach
 
@@ -315,7 +308,7 @@ tokenizer = AutoTokenizer.from_pretrained("distilroberta-base")
 
 def predict_tweet(text):
     # Tokenize input
-    inputs = tokenizer(text, return_tensors="pt", padding=True, truncation=True, max_length=48)
+    inputs = tokenizer(text, return_tensors="pt", padding='max_length', truncation=True, max_length=128)
     inputs = {k: v.to(DEVICE) for k, v in inputs.items()}
     
     # Get prediction
@@ -343,7 +336,7 @@ print(f"Predicted label: {label}")  # 0: non-hate, 1: hate speech
    | **Accuracy** | 91% | **98.14%** |
 | **Precision** |  75% | **90.42%** |
 | **Recall** | 73% | **82.14%** |
-| **Ranking** | 547 / 1400+ | **7 / 1400+** |
+| **Ranking** | 547 / 1400+ | **6 / 1400+** |
 | **Training Time** | Fast (minutes) | Moderate (~52 minutes) |
 | **Inference Time** | Very Fast | Fast (with GPU) |
 | **Model Size** | Small (~1 MB) | Medium (~82 MB) |
@@ -548,7 +541,7 @@ nltk.download('wordnet')
 - Achieves **24% relative improvement** in F1-score over Logistic Regression (0.8608 vs 0.6965)
 - DistilRoBERTa provides excellent balance between performance and efficiency
 - Model shows strong convergence with steady improvement across epochs
-- Validation F1-score (0.8608) closely matches test F1-score (0.8584), indicating good generalization
+- Validation F1-score (0.8608) closely matches test F1-score (0.8622), indicating good generalization
 
 ---
 
@@ -556,7 +549,7 @@ nltk.download('wordnet')
 
 | Model | F1-Score (Val) | F1-Score (Test) | Rank | Key Strength |
 |-------|----------------|-----------------|------|--------------|
-| **DistilRoBERTa** | **0.8608** | **0.8622** | **7 / 1400+** | Context understanding, semantic analysis, efficiency |
+| **DistilRoBERTa** | **0.8608** | **0.8622** | **6 / 1400+** | Context understanding, semantic analysis, efficiency |
 | **Logistic Regression** | 0.74 | 0.6965 | 547 / 1400+ | Fast, interpretable, lightweight |
 
 The DistilRoBERTa model demonstrates that efficient transformer-based architectures can achieve superior performance for complex NLP tasks like hate speech detection, where context and semantic understanding are critical. The distilled version provides an excellent balance between the performance of large transformers and the efficiency needed for practical deployment.
